@@ -2,7 +2,7 @@ describe('file module tests', function () {
     var file, fs = require('fs'), testArea;
 
     beforeEach(function () {
-        file = require('file.js');
+        file = require('js/file.js');
         testArea = document.createElement('textarea');
         testArea.setAttribute('id', 'editor');
         document.body.appendChild(testArea);

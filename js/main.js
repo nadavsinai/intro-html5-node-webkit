@@ -1,4 +1,4 @@
-var file = require('./js/file.js');
+var file = require('js/file.js');
 var gui = require('nw.gui');
 
 var menu = new gui.Menu({ type: 'menubar' });

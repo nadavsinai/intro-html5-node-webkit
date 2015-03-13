@@ -14,7 +14,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'js/**/*.spec.js'
+      'js/**/*.spec.js',
+        'js/main.js',
     ],
 
 
@@ -59,7 +60,7 @@ module.exports = function(config) {
           'NodeWebkitWithCustomPath': {
               base: 'NodeWebkit',
               // Remember to include 'node_modules' if you have some modules there
-              paths: ['js', 'node_modules']
+              paths: ['./', 'node_modules']
           }
       },
 
