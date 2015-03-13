@@ -1,6 +1,7 @@
 var main, open, save;
 open = document.createElement('input');
 open.setAttribute('id', 'open');
+open.setAttribute('type', 'file');
 save = document.createElement('input');
 save.setAttribute('id', 'save');
 document.body.appendChild(open);
@@ -12,21 +13,25 @@ describe('main tests', function () {
     beforeEach(function () {
         file = require('js/file');
     });
-    xit('check open via event', function () {
-
-        spyOn(document, 'dispatchEvent').and.callThrough();
-        var key = document.createEvent('KeyboardEvent');
-        key.initKeyboardEvent("keyup", true, true,
-            window, "O".charCodeAt(0), 79,
-            'ctrl');
-        console.log(key.getModifierState('ctrl'));
-        document.dispatchEvent(key);
-        expect(document.dispatchEvent.calls.count()).toEqual(2);
-    });
-    it('checks the file open fn is called on change of file open inut', function (done) {
-        spyOn(file, 'open');
-        clickInput('open');
-        expect(file.open).toHaveBeenCalled();
-        done();
+    it('check open via event', function () {
+        spyOn(open, 'dispatchEvent').and.callThrough();
+        function fireKey(el, key) {
+            key = key.charCodeAt(0);
+            if (document.createEvent) {
+                var eventObj = new KeyboardEvent("keyup", {
+                    bubbles : true,
+                    cancelable : true,
+                    char : "O",
+                    key : "o",
+                    ctrlKey : true,
+                    keyCode : 79
+                });
+                delete eventObj.keyCode;
+                Object.defineProperty(eventObj, "keyCode", {"value" : 79})
+                el.dispatchEvent(eventObj);
+            }
+        }
+        fireKey(document, 'O');
+        expect(open.dispatchEvent.calls.count()).toEqual(1);
     });
 });
