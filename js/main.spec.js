@@ -1,4 +1,4 @@
-var main, open, save;
+var open, save;
 open = document.createElement('input');
 open.setAttribute('id', 'open');
 open.setAttribute('type', 'file');
@@ -12,6 +12,7 @@ describe('main tests', function () {
     var file;
     beforeEach(function () {
         file = require('js/file');
+        require('js/main')(document,file);
     });
     it('check open via event', function () {
         spyOn(open, 'dispatchEvent').and.callThrough();
