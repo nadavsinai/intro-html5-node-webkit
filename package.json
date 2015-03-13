@@ -5,5 +5,11 @@
     "toolbar": true,
     "width": 600,
     "height": 400
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-nodewebkit-launcher": "git://github.com/iamdenny/karma-nodewebkit-launcher"
   }
 }
