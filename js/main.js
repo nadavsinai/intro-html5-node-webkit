@@ -1,4 +1,4 @@
-var file = require('file.js');
+var file = require('./js/file.js');
 var gui = require('nw.gui');
 
 var menu = new gui.Menu({ type: 'menubar' });
@@ -11,6 +11,12 @@ menu.items[0].submenu.append(new gui.MenuItem({
 	click: function () {
 		gui.Window.open('index.html');
 	}
+}));
+menu.items[0].submenu.append(new gui.MenuItem({
+    label: 'Save',
+    click: function () {
+        clickInput('save');
+    }
 }));
 menu.items[0].submenu.append(new gui.MenuItem({
 	type: 'separator'
