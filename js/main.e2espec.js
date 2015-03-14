@@ -42,7 +42,7 @@ describe('checks textbox functionality', function () {
         $('#editor').sendKeys(str);
         path2File = path.resolve(__dirname, '../test.txt');
         $('#save').sendKeys(path2File);
-        browser.sleep(1500);
+        browser.sleep(3500);
         //$('body').sendKeys(protractor.Key.CONTROL, "S", protractor.Key.NULL)
         fs.readFile(path2File, 'utf8', function (err,content) {
             if (!err){

@@ -6,7 +6,7 @@ exports.config = {
         browserName: 'chrome',
         chromeOptions: {
             // Path to NW.js binary goes here!
-            binary: '/usr/local/bin/nw'
+            binary: '/usr/bin/nw'
         }
     },
     // Spec patterns are relative to the location of this config.
